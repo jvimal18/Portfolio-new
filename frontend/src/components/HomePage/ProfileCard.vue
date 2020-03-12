@@ -7,8 +7,7 @@
       Hello my name is, <br/>
       <h1 class="name">{{name}}</h1>
       <div class="description">
-        I'm a full-stack developer specialised in frontend and backend development for complex scalable web apps.
-        I always love to  learn & master new technologies.
+        {{description}}
       </div>
       <div class="button">Hire Me</div>
     </div>
@@ -20,7 +19,10 @@ export default {
     name:'profilecard',
     data () { 
       return {
-        name: 'Vimal Jayapalan'
+        name: 'Vimal Jayapalan',
+        description: "I'm a full-stack developer specialised in frontend and backend development \
+        for complex scalable web apps.\
+        I always love to  learn & master new technologies."
       }
     }
 }
@@ -29,6 +31,7 @@ export default {
 <style scoped lang="scss">
   .profile-card {
     display: flex;
+    flex-wrap: wrap;
     background-color: var(--primary-color);
     justify-content: space-around;
     align-items: center;
@@ -39,7 +42,7 @@ export default {
 
     .image {
       flex: 1;
-      margin-right: 5rem;
+      margin: 5rem;
       text-align: right;
 
       .profile-picture {
@@ -78,6 +81,26 @@ export default {
           cursor: pointer;
         }
         
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    .profile-card {
+      
+      .image {
+        text-align: center;
+      }
+
+      .content{
+        .name {
+          font-size: 3rem;
+          line-height: 6rem;
+        }
+
+        .button {
+          margin: 2rem auto 0 auto;
+        }
       }
     }
   }

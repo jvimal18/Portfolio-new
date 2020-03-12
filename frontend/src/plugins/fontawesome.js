@@ -13,7 +13,9 @@ import {
     faDownload,
     faPrint,
     faChevronRight,
-    faChevronLeft
+    faChevronLeft,
+    faBars,
+    faCoins
     } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -44,7 +46,9 @@ library.add(
     faDownload,
     faPrint,
     faChevronRight,
-    faChevronLeft
+    faChevronLeft,
+    faBars,
+    faCoins
     )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

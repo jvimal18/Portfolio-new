@@ -1,0 +1,79 @@
+{
+  "personal_details": {
+    "name": "vimal Jayapalan",
+    "description": "I'm a full-stack developer specialised in frontend and backend development for complex scalable web apps. I always love to  learn & master new technologies.",
+    "primary-email": "j.vimal@outlook.com",
+    "secondary-email": "j.vimal18@gmail.com",
+    "resumeURL": "./static/resume/Resume.pdf",
+    "socialmedia": [
+      {"name": "linkedIn", "url": ""},
+      {"name": "Reddit", "url": ""},
+      {"name": "Github", "url": ""}
+    ]
+  },
+  "organizational_details": {
+    "companies": [
+      { "name":"hexaware", "url": "https://hexaware.com/", "logo": "./static/icons/hexaware-logo.svg"},
+      { "name": "ami", "url": "http://www.amiindia.co.in/", "logo": "./static/icons/ami-logo.svg"}
+    ],
+    "clients": [
+      { "name":"Ernst & Young", "url":"https://www.ey.com/en_in", "logo": "./static/icons/ey-logo.svg"},
+      { "name":"arago-hiro", "url":"https://www.arago.co/hiro/", "logo": "./static/icons/arago-logo.svg"},
+      { "name":"LTF", "url":"https://www.lifetime.life/", "logo": "./static/icons/ltf-logo.svg"},
+      { "name":"AXA", "url":"https://www.axa.com/en", "logo": "./static/icons/axa-logo.svg"}
+    ]
+  },
+  "technical_knowledge": [
+    { "name":"frontend",
+      "skills": ["Vue/Vuex/Router", "Javascript", "Nodejs", "Webpack", "HTML/CSS/SASS"],
+      "icon": ["fab","codepen"]
+    },
+    {
+      "name": "backend",
+      "skills": ["Python", "Flask/Bottle", "Mysql/Postgresql", "Docker"],
+      "icon": ["fas","database"]
+    },
+    {
+      "name": "others",
+      "skills": ["Linux/Bash", "Github/Gitlab", "Arago Hiro", "Agile", "DevOps"],
+      "icon": ["fas","random"]
+    }
+  ],
+  "personal_projects": [
+    { 
+      "name": "Tax Calculator FY 20-21", 
+      "description": "Simple application to calculate tax payable as per New scheme proposed in Budget 2020", 
+      "routerlink": "", 
+      "githublink": "",
+      "icon": "./static/icons/tax.svg"
+    },
+    { 
+      "name": "Tax Calculator FY 19-20", 
+      "description": "Application to calculate tax payable for financial year 2019-2020", 
+      "routerlink": "", 
+      "githublink": "",
+      "icon": "./static/icons/tax.svg"
+    },
+    { 
+      "name": "TicTacToe", 
+      "description": "Lets have some fun beat me if you can !!!", 
+      "routerlink": "", 
+      "githublink": "",
+      "icon": "./static/icons/tax.svg"
+    },
+    { 
+      "name": "Flames", 
+      "description": "Discover your relationship with your loved ones..", 
+      "routerlink": "", 
+      "githublink": "",
+      "icon": "./static/icons/tax.svg"
+    },
+    { 
+      "name": "TypeIT", 
+      "description": "Test your speed of typing", 
+      "routerlink": "", 
+      "githublink": "",
+      "icon": "./static/icons/tax.svg"
+    }
+  ]
+}

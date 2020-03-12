@@ -2,6 +2,9 @@
   <div id="app">
     <nav-bar></nav-bar>
     <router-view/>
+    <div class="hamburger" @click="showNavMobile=!showNavMobile">
+      <font-awesome-icon :icon="['fas', 'bars']" size="lg"/>
+    </div>
   </div>
 </template>
 
@@ -73,6 +76,40 @@ html {
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   margin: 1rem auto;
+  text-transform: capitalize;
 }
+
+</style>
+
+<style lang="scss">
+    .hamburger {
+      color: var(--white-color);
+      display: none;
+      position: absolute;
+      left: 5px;
+      top: 50px;
+      background-color: var(--primary-color-dark);
+      padding: 10px 15px;
+      transition: .5s;
+      border-radius: 50px;
+
+      &.fulpad {
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        padding: 100vh 100vw;
+        transition: 1s ease;
+      }
+
+      &:hover {
+        cursor:pointer;
+      }
+    }
+
+    @media (max-width: 850px) { 
+      .hamburger {
+        display: block;
+      }
+    }
 
 </style>

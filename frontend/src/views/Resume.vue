@@ -81,7 +81,6 @@ export default {
       }
     },
     print(){
-      console.log("Print")
       printjs({printable:'./static/resume/Resume.pdf', type:'pdf', showModal:true})
     },
   }

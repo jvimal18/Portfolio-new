@@ -30,7 +30,8 @@
         clients: [
           { name:"Ernst & Young", url:"https://www.ey.com/en_in", logo: "./static/icons/ey-logo.svg"},
           { name:"arago-hiro", url:"https://www.arago.co/hiro/", logo: "./static/icons/arago-logo.svg"},
-          { name:"LTF", url:"https://www.lifetime.life/", logo: "./static/icons/ltf-logo.svg"}
+          { name:"LTF", url:"https://www.lifetime.life/", logo: "./static/icons/ltf-logo.svg"},
+          { name:"AXA", url:"https://www.axa.com/en", logo: "./static/icons/axa-logo.svg"}
         ]
       }
     }
@@ -45,6 +46,7 @@
     .company-icons {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       min-height: 150px;
      
       div {
@@ -52,7 +54,8 @@
         align-items: center;
         font-weight: 700;
         font-size: 3.5rem;
-        color:#A1A6AE
+        color:#A1A6AE;
+        margin: 2rem;
       }
 
       img {
