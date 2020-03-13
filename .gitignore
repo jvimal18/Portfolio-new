@@ -1,4 +1,14 @@
-.vscode/
-venv/
+.venv/
+**\.vscode\
 node_modules/
 *.pyc
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+node_modules

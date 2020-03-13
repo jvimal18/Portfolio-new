@@ -18,7 +18,13 @@ const routes = [
   {
     path: '/apps',
     name: 'Apps',
-    component: () => import('../views/AppPage.vue')
+    component: () => import('../views/AppPage.vue'),
+    children: [
+      {
+      path: 'typinggame',
+      component: () => import('../apps/TypingGame/typingGame.vue')
+      }
+    ]
   },
   {
     path: '/credits',

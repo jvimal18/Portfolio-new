@@ -1,4 +1,3 @@
-
 <template>
   <div class="show-pdf">
     <div class="pdf-tool-bar">
@@ -8,7 +7,7 @@
           <font-awesome-icon :icon="['fas', 'minus']"/>
         </div>
         
-        <div class="page-no">{{ page }} / {{ TotalPages }}</div>
+        <div class="page-no">{{ page }} / {{ totalPages }}</div>
 
         <div class="plus" @click="incrementPage">
           <font-awesome-icon :icon="['fas','plus']"/>
@@ -22,8 +21,15 @@
     <div class="pdf-viewer">
       <div class="left disabled" @mouseover="showarrow = true" @mouseleave="showarrow = false" @click="decrementPage">
         <font-awesome-icon v-if="showarrow" :icon="['fas', 'chevron-left']"/>
-    </div>
-      <pdf src="./static/resume/Resume.pdf" :id="page" :page="page">
+      </div>
+      <pdf src="./static/resume/Resume.pdf" 
+        :id="page" 
+        :page="page" 
+        :scale.sync="scale" 
+        :resize="true"
+        @numpages="setPageNumber"
+        style="width: 100%"
+        >
         <template slot="loading">
           <div class="lds-dual-ring"></div>
         </template>
@@ -47,14 +53,14 @@ export default {
     return {
       pdfdata: undefined,
       page: 1,
-      TotalPages: 3,
+      totalPages: 3,
       scale: 'page-width',
       showarrow: false
     }
   },
   watch: {
     page() {
-      if ( this.page == this.TotalPages ) {
+      if ( this.page == this.totalPages ) {
         this.$el.querySelector(".plus").classList.add("disabled")
         this.$el.querySelector(".right").classList.add("disabled")
       } else if ( this.page == 1 ) {
@@ -71,7 +77,7 @@ export default {
   },
   methods: {
     incrementPage() {
-      if (this.page !== this.TotalPages){
+      if (this.page !== this.totalPages){
         this.page++
       }
     },
@@ -79,6 +85,10 @@ export default {
       if (this.page !== 1){
         this.page--
       }
+    },
+    setPageNumber(e) {
+      this.totalPages-e
+      console.log("PageNumber Event", e)
     },
     print(){
       printjs({printable:'./static/resume/Resume.pdf', type:'pdf', showModal:true})
@@ -145,7 +155,7 @@ export default {
       align-self: flex-start;
       flex-wrap: nowrap;
       background-color: #333;
-      padding: 1rem 15%;
+      padding: 1rem;
       margin-bottom: 2rem;
       width: 100%;
       position: sticky;
@@ -154,13 +164,14 @@ export default {
 
       .name {
         display: flex;
-        flex: 4;
-        justify-content: flex-start;
+        flex: 2;
+        justify-content: flex-end;
+        align-items: center;
       }
     
       .page-trigger{
         display: flex;
-        flex:1;
+        flex:2;
         justify-content: center;
 
         .minus {
@@ -179,8 +190,8 @@ export default {
 
       .tool-bar-actions {
         display: flex;
-        flex:4;
-        justify-content: flex-end;
+        flex:2;
+        justify-content: flex-start;
         align-items: center;
         font-size: 2rem;
 
@@ -194,6 +205,27 @@ export default {
       }
     }
   }
+  
+  @media (max-width: 850px) {
+    .show-pdf{
+      .pdf-viewer {
+        width: 100%;
+
+        .left, .right {
+          display: none;
+        }
+
+        .pdf-canvas{
+          max-width: 100%;
+        }
+      }
+
+      .pdf-tool-bar {
+        padding: 1rem;
+      }
+    }
+  }
+  
 </style>
 
 <style>

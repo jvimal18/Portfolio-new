@@ -104,7 +104,7 @@ export default {
       }
 
       .links {
-        display: none;
+        // display: none;
         flex-direction: column;
         justify-content: flex-start;
         width: 100%;
