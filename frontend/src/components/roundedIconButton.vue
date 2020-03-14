@@ -4,13 +4,7 @@
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
-<style lang="scss">
+<style lang="scss" scoped>
   .button__round {
     font-size: 1rem;
     width: 4em;

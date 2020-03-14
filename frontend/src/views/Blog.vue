@@ -1,20 +1,33 @@
 <template>
   <div id="blog">
-      <div class="header">
-          
-      </div>
-      <div class="card" v-for="(blog, id) in blogs" :key='id'>
 
-      </div>
+    <section class="heading">
+      <div></div>
+      <div class="heading-primary">Techie Talks</div>
+      <div></div>
+    </section>
+
+    <router-view/>
+
+    <section class="footer"></section>
+    
   </div>
 </template>
 
 <script>
+
+
 export default {
     name: 'blog',
+    components: {
+    
+    }
 }
 </script>
 
 <style>
+  #blog {
+    padding: 2rem 2rem;
+  }
 
 </style>

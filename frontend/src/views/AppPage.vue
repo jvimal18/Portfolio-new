@@ -1,62 +1,63 @@
 <template>
   <div id="apps">
-    <section class="header" v-if="!showHome" @click="showHome=!showHome">
-      <font-awesome-icon :icon="['fas', 'arrow-circle-left']" size="3x"/>
+
+    <section class="header" v-if="$route.name !== 'Apps'">
+      <router-link :to="{path: '/apps'}" tag="div" class="back-button cursor-pointer">
+        <font-awesome-icon :icon="['fas', 'arrow-circle-left']" size="2x" />
+      </router-link>
     </section>
 
-    <home v-if="showHome" @changeview="showHome=!showHome; console.log(showHome)"/>
-    <div v-else>
-      <router-view/>
+    <div class="app-view">
+    <router-view/>
     </div>
 
-    <section class="footer">
-      It has been a great journey of learning, visualing and coding all funning and useful things what comes to my mind. More to come.
-    </section>
+    <div class="footer">
+      It has been a great journey of learning, visualing and coding all funning and useful things what comes to my mind. 
+      More to come.
+    </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 
-import home from '@/components/AppPage/Home'
 export default {
-  components: {
-    home
+  computed: {
+    ...mapGetters(['applications'])
+  },
+  watch: {
+
   },
   data() {
     return {
-      showHome: true,
-    }
+       
+    };
   },
   mounted() {
     // console.log(this.$route)
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
-  #apps {
-    .content {
-      display: flex;
-      flex-wrap: wrap;
-      
-      .card{
-        flex-grow:1;
-        width: 25%;
-        min-width: 400px;
-        margin: 1rem;
-        background-color: var(--white-color);
-        padding: 2rem;
-        box-shadow: 0px -2px 5px -5px #333, 2px 0 5px -5px #333, 0 5px 5px -8px #333;
-        border-radius: 5px;
+#apps {
+  .header {
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    height: 50px;
+    background-color: rgba(10, 113, 198, 0.24);
+    opacity: .5;
 
-        .image{
-          img {
-            width: 10rem;
-            height: 10rem;
-          }
-        }
-      }
+    .back-button {
+
+
     }
-  }
 
+    .app-view {
+      max-height: 90vh;
+    }
+
+  }
+}
 </style>

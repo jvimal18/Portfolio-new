@@ -3,6 +3,7 @@
     <ProfileCard/>
     <SkillOverview/>
     <Companies/>
+    <Footer/>
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import ProfileCard from '@/components/HomePage/ProfileCard'
 import SkillOverview from '@/components/HomePage/SkillOverview'
 import Companies from '@/components/HomePage/Companies'
+import Footer from '@/components/footer'
 
 export default {
   name: 'Home',
   components: {
     ProfileCard,
     SkillOverview,
-    Companies
+    Companies,
+    Footer
   }
 }
 </script>

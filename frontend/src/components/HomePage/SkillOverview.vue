@@ -62,6 +62,9 @@ export default {
       display: flex;
       flex-direction: column;
       padding: 2rem;
+      animation: myfadeIn 1s ease 4.5s;
+      animation-fill-mode: forwards;
+      visibility: hidden;
 
       .heading-secondary {
         text-transform: capitalize;
@@ -131,12 +134,12 @@ export default {
   }
 
 
-  @media (max-width: 850px) {
+  @media (max-width: 768px) {
     .skill-overview{
       padding:0;
 
       .description {
-        padding: 0 2rem;
+        padding: 0 3rem;
       }
 
       .skills{

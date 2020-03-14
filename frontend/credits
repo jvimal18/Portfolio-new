@@ -2,11 +2,19 @@ UI/UX : Inspired from https://themes.3rdwavemedia.com/instance/bs4/index.html
 PDF Viewer: https://github.com/arkokoley/
 Print PDF: https://printjs.crabbly.com/
 
+ngrok
+
 
 Technologies/Tools used
 =======================
 Font-Awesome
 Vuejs
 Python
+
+Javascript
+==========
+axios
+http Request
+fetch API
 
 

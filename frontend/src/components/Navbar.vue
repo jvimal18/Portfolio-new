@@ -23,7 +23,6 @@ export default {
         resume: "/resume",
         apps: "/apps",
         blog: "/blog",
-        contact: "/contact",
         credits: "/credits"
       },
       socialMedias: [
@@ -85,7 +84,7 @@ export default {
         }
     }
   }
-  @media (max-width: 850px) {
+  @media (max-width: 768px) {
 
     nav {
       height: 100%;

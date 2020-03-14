@@ -16,7 +16,8 @@ import {
     faChevronLeft,
     faBars,
     faCoins,
-    faArrowCircleLeft
+    faArrowCircleLeft,
+    faPlay,
     } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -27,7 +28,8 @@ import {
     } from '@fortawesome/free-brands-svg-icons'
 
 import {
-    faPaperPlane
+    faPaperPlane,
+    faTimesCircle
     } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -38,6 +40,7 @@ library.add(
     faCodepen,
     // Regular Icons
     faPaperPlane,
+    faTimesCircle,
     // Solid Icons
     faDatabase,
     faRandom,
@@ -50,7 +53,8 @@ library.add(
     faChevronLeft,
     faBars,
     faCoins,
-    faArrowCircleLeft
+    faArrowCircleLeft,
+    faPlay,
     )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

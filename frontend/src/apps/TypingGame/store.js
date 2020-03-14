@@ -11,7 +11,7 @@ const state = {
     startGame: false,
     score: 0,
     startTime: new Date(),
-    quoteHtmlElement: HTMLElement
+    quoteHtmlElement: HTMLElement,
 }
 
 const getters = {
@@ -32,7 +32,7 @@ const actions = {
                   commit( 'setQuoteLength', data.quote.length)
                 })
           } else {
-              console.log('Error')
+              // console.log('Error')
           }
       })
   },
