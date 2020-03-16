@@ -3,13 +3,13 @@
     <div class="image">
       <v-img>
         <img slot="image" src="@/assets/imgs/ProfilePic.jpg" />
-        <img slot="preloader" src="@/assets/loadingSpinner/Spin.gif" />
+        <img slot="preloader" src="@/assets/loadingSpinner/spin-alt.svg" />
         <div slot="error">error message</div>
       </v-img>
     </div>
     <div class="content">
       <div class="greet-1">Hi, Welcome to my Site</div>
-      <div class="greet-2">My name is,</div>
+      <div class="greet-2">I'm,</div>
       <h1 class="name">{{name}}</h1>
       <div class="description">{{description}}</div>
       <div class="button" @click="ShowContact">Contact Me</div>
@@ -56,9 +56,11 @@ export default {
     animation: myfadeIn 1s ease-in;
     animation-fill-mode: both;
 
-    .profile-picture {
-      width: 25rem;
-      border-radius: 10px;
+    
+
+    .vue-load-image img{
+      width: 20rem;
+      border-radius: 5px;
     }
   }
 
@@ -115,7 +117,7 @@ export default {
 
 @media (max-width: 768px) {
   .profile-card {
-    padding: 0 3rem;
+    padding: 3rem;
 
     .image {
       text-align: center;

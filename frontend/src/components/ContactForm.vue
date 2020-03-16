@@ -1,7 +1,12 @@
 <template>
   <div class="contact-form" :class="{'middle': showForm}">
-    <transition enter-active-class="slideInLeft" leave-active-class="slideOutLeft">
-      <div class="button cursor-pointer" v-if="! showForm" @click="showForm=true" key="1">Contact Me</div>
+    <transition enter-active-class="slideInRight" leave-active-class="slideOutRight" 
+    :duration="{ enter: 500, leave: 50}"
+    mode='out-in'
+    >
+      <div class="button cursor-pointer" v-if="! showForm" @click="showForm=true" key="1">
+        Contact Me 
+      </div>
 
       <div class="form" v-else key="2">
         <header>
@@ -56,7 +61,7 @@ export default {
 .contact-form {
   position: fixed;
   color: white;
-  left: 0;
+  right: 0;
   bottom: 10%;
   z-index: 10;
 
@@ -69,9 +74,10 @@ export default {
     background-color: var(--primary-color);
     padding: 0.5em 0;
     writing-mode: tb-rl;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    }
 
   .form {
     display: flex;
@@ -165,9 +171,4 @@ export default {
     }
   }
 }
-@media (max-width: 768px) {
-  .contact-form {
-    width: 100vmin;
-  }
-} 
 </style>

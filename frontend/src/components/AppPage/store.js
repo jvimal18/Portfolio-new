@@ -4,7 +4,7 @@ const state = {
       name: "Tax Calculator FY 20-21",
       description:
         "Simple application to calculate tax payable as per New scheme proposed in Budget 2020",
-      routerlink: "",
+      routerlink: "/apps/tax2021",
       githublink: "https://github.com/jvimal18/vue-typingapp",
       icon: "./static/icons/tax2.svg",
       techused: ['vue', 'html5', 'sass', 'js', 'python', 'css']
@@ -24,7 +24,7 @@ const state = {
       routerlink: "",
       githublink: "",
       icon: "./static/icons/tictactoe.svg",
-      techused: ['vue']
+      techused: ['vue', 'python', 'sass']
     },
     {
       name: "Flames",
@@ -32,7 +32,7 @@ const state = {
       routerlink: "/apps/flames",
       githublink: "",
       icon: "./static/icons/flames.svg",
-      techused: ['vue', 'python', 'css']
+      techused: ['vue', 'python', 'css', 'html5']
     },
     {
       name: "TypeIT",
@@ -40,7 +40,7 @@ const state = {
       routerlink: "/apps/typinggame",
       githublink: "",
       icon: "./static/icons/typeit.svg",
-      techused: ['vue']
+      techused: ['vue', 'html5', 'css', 'js']
     }
   ]
 };

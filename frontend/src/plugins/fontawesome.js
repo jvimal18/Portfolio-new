@@ -18,6 +18,7 @@ import {
     faCoins,
     faArrowCircleLeft,
     faPlay,
+    faArrowCircleRight
     } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -29,7 +30,9 @@ import {
 
 import {
     faPaperPlane,
-    faTimesCircle
+    faTimesCircle,
+    faComment,
+    faCalendarAlt
     } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -41,6 +44,8 @@ library.add(
     // Regular Icons
     faPaperPlane,
     faTimesCircle,
+    faComment,
+    faCalendarAlt,
     // Solid Icons
     faDatabase,
     faRandom,
@@ -54,6 +59,7 @@ library.add(
     faBars,
     faCoins,
     faArrowCircleLeft,
+    faArrowCircleRight,
     faPlay,
     )
 

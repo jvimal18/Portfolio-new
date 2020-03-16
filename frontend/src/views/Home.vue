@@ -12,7 +12,7 @@
 import ProfileCard from '@/components/HomePage/ProfileCard'
 import SkillOverview from '@/components/HomePage/SkillOverview'
 import Companies from '@/components/HomePage/Companies'
-import Footer from '@/components/footer'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'Home',

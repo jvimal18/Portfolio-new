@@ -1,6 +1,6 @@
 <template>
   <div class="app-home">
-    <section class="heading-primary">Personal Projects</section>
+    <section class="heading-primary">Personal Fun Projects</section>
 
     <div class="content">
       <div
@@ -18,7 +18,7 @@
           />
           <v-img v-else>
             <img slot="image" :src="application.icon" />
-            <img slot="preloader" src="@/assets/loadingSpinner/Spin.gif" />
+            <img slot="preloader" src="@/assets/loadingSpinner/spin.svg" />
             <div slot="error">error message</div>
           </v-img>
         </div>
@@ -30,7 +30,7 @@
           <div class="tech-icon">
             <v-img v-for="(icon,idx) in application.techused" :key="idx">
               <img slot="image" :src="`./static/icons/tech-icons/${icon}.svg`" />
-              <img slot="preloader" src="@/assets/loadingSpinner/Spin.gif" />
+              <img slot="preloader" src="@/assets/loadingSpinner/spin.svg" />
               <div slot="error">error message</div>
             </v-img>
           </div>
@@ -66,7 +66,7 @@ export default {
     ...mapGetters(["applications"]),
   },
   mounted() {
-    let temp = .5
+    let temp = 0
     let div;
     this.applications.forEach(() => {
       temp += .25

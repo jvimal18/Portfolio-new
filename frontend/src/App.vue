@@ -3,11 +3,8 @@
     <contact-form />
     <nav-bar></nav-bar>
     
-    <router-view appear :key="$route.path"></router-view>
+    <router-view id="defaultRouterView" :key="$route.path"></router-view>
    
-    <div class="hamburger" @click="showNavMobile=!showNavMobile">
-      <font-awesome-icon :icon="['fas', 'bars']" size="lg" />
-    </div>
   </div>
 </template>
 
@@ -17,9 +14,26 @@ import ContactForm from "@/components/ContactForm";
 
 export default {
   name: "App",
+  data() {
+    return {
+      window_width: Number
+    }
+  },
+  watch: {
+    $route() {
+      var elmnt = document.getElementById('body')
+      elmnt.scrollTop+=1000;
+    }
+  },
   components: {
     NavBar,
     ContactForm
+  },
+  created() {
+    
+  },
+  methods: {
+  
   }
 };
 </script>
@@ -75,19 +89,20 @@ html {
   color: var(--text-color);
   line-height: 3rem;
   background-color: var(--app-background);
+  position: relative
 }
 
 .heading-primary {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
-  margin: 3rem auto;
+  line-height: 6rem;
 }
 
 .heading-secondary {
   font-size: 2rem;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
-  margin: 1rem auto;
+  line-height: 4rem;
   text-transform: capitalize;
 }
 
@@ -123,11 +138,12 @@ html {
   display: none;
   position: absolute;
   left: 5px;
-  top: 50px;
+  top: 60px;
   background-color: var(--primary-color-dark);
   padding: 10px 15px;
   transition: 0.5s;
   border-radius: 50px;
+  z-index: 1000;
 
   &.fulpad {
     top: 0;

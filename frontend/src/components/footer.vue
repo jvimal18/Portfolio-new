@@ -1,19 +1,20 @@
 <template>
-  <div class="footer">
+  <div class="app-footer">
     <div class="image">
       <v-img>
         <img slot="image" src="@/assets/imgs/ProfilePic.jpg" />
-        <img slot="preloader" src="@/assets/loadingSpinner/Spin.gif" />
+        <img slot="preloader" src="@/assets/loadingSpinner/spin.svg" />
         <div slot="error">error message</div>
       </v-img>
     </div>
-    <div class="heading-secondary">Interested in Learn Web development ??</div>
+    <div class="heading-secondary">Interested in Learning Web development ??</div>
     <div class="description">
-      I take classes on Python and vuejs as my hobby on weekend. Feel free to
+      I take classes on Python and Vuejs as my hobby on weekend. Feel free to
       <a
         href="mailTo:j.vimal18@gmail.com?subject=Hi"
-      >mail me</a>
+      >mail me</a>.
       <br />
+      I also takeup freelance web development on request.
     </div>
     <div class="button cursor-pointer">
       <span @click="showContactForm">Let's Talk</span>
@@ -23,7 +24,6 @@
 
 <script>
 export default {
-  name: "footer",
   data() {
     return {};
   },
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-.footer {
+.app-footer {
   display: flex;
   justify-content: center;
   align-items: center;

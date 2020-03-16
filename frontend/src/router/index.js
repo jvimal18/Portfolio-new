@@ -36,7 +36,13 @@ const routes = [
         path: 'flames',
         name: 'Flames',
         component: () => import('@/apps/Flames/flames.vue')
-        }
+      },
+      {
+        path: 'tax2021',
+        name: 'Tax Calculator 20-21',
+        component: () => import('@/apps/TaxCalculator20-21/TaxCalcHome.vue')
+      },
+
     ]
   },
   {

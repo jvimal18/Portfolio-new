@@ -31,7 +31,7 @@
       </div>
       <v-img>
         <img slot="image" :src="`./static/resume/Resume-${page}.jpg`" />
-        <img slot="preloader" src="@/assets/loadingSpinner/Spin.gif" />
+        <img slot="preloader" src="@/assets/loadingSpinner/spin.svg" />
         <div slot="error">Something unexpected happened try again later</div>
       </v-img>
       <div
@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       pdfdata: undefined,
-      page: 1,
+      page: Number,
       totalPages: 3,
       scale: "page-width",
       showarrow: false
@@ -65,6 +65,7 @@ export default {
   },
   watch: {
     page() {
+      console.log(this.page)
       if (this.page == this.totalPages) {
         this.$el.querySelector(".plus").classList.add("disabled");
         this.$el.querySelector(".right").classList.add("disabled");
@@ -78,6 +79,9 @@ export default {
         this.$el.querySelector(".left").classList.remove("disabled");
       }
     }
+  },
+  mounted() {
+    this.page = 1
   },
   methods: {
     incrementPage() {
@@ -118,7 +122,7 @@ export default {
   .pdf-viewer {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     
     img {
       width: 75%;
@@ -221,18 +225,26 @@ export default {
 
 @media (max-width: 768px) {
   .show-pdf {
+    align-items: center;
+    
     .pdf-viewer {
-      width: 100%;
+      width: 100vmin;
+
+      .vue-load-image {
+        text-align: center;
+        img {
+          width: 100vmin;
+        }
+      }
 
       .left,
       .right {
         display: none;
       }
 
-      .pdf-canvas {
-        max-width: 100%;
-      }
     }
+
+
 
     .pdf-tool-bar {
       padding: 1rem;

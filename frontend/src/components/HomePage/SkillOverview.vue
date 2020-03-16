@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -65,6 +65,10 @@ export default {
       animation: myfadeIn 1s ease 4.5s;
       animation-fill-mode: forwards;
       visibility: hidden;
+
+      .contact {
+        color: var(--primary-color)
+      }
 
       .heading-secondary {
         text-transform: capitalize;

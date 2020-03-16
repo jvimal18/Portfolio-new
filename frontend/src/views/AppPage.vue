@@ -1,63 +1,73 @@
 <template>
-  <div id="apps">
-
+  <div class="app-page">
     <section class="header" v-if="$route.name !== 'Apps'">
       <router-link :to="{path: '/apps'}" tag="div" class="back-button cursor-pointer">
         <font-awesome-icon :icon="['fas', 'arrow-circle-left']" size="2x" />
       </router-link>
+      <div class="title heading-primary">{{$route.name}}</div>
+      <a :href="githublink" target="_blank" v-if="githublink !== ''" :key="$route.path"><font-awesome-icon :icon="['fab', 'github-alt']" size="2x" /></a>
     </section>
 
     <div class="app-view">
-    <router-view/>
+      <router-view />
     </div>
 
     <div class="footer">
-      It has been a great journey of learning, visualing and coding all funning and useful things what comes to my mind. 
+      It has been a great journey of learning, visualing and coding all funning and useful things what comes to my mind.
       More to come.
     </div>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(['applications'])
-  },
-  watch: {
-
+    ...mapGetters(["applications"])
   },
   data() {
     return {
-       
+      githublink: String
     };
   },
   mounted() {
-    // console.log(this.$route)
+    
   },
+  beforeRouteUpdate(to, from, next) {
+   this.applications.forEach(element => {
+      if (element.routerlink == to.path) {
+        this.githublink = element.githublink
+      }
+    });
+    console.log('githublink',this.githublink)
+    next();
+  }
 };
 </script>
 
-<style lang="scss">
-#apps {
+<style lang="scss" scoped>
+.app-page {
   .header {
     display: flex;
     padding: 0 20px;
-    align-items: center;
-    height: 50px;
+    flex-direction: row;
     background-color: rgba(10, 113, 198, 0.24);
-    opacity: .5;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 45%;
+
+    div {
+      text-transform: uppercase;
+    }
+
+    .title {
+      margin-right: auto;
+    }
 
     .back-button {
-
-
+      margin-right: auto;
     }
-
-    .app-view {
-      max-height: 90vh;
-    }
-
   }
 }
 </style>
