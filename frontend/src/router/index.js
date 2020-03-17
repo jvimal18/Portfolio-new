@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import AppHome from '@/components/AppPage/Home'
 import blogHome from '@/apps/blog/blogHome'
 import blogView from '@/apps/blog/components/blogView.vue';
+import about from '@/views/About'
 
 Vue.use(VueRouter)
 
@@ -12,6 +13,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: about
   },
   {
     path: '/resume',

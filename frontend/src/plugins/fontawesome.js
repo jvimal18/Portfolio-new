@@ -18,21 +18,25 @@ import {
     faCoins,
     faArrowCircleLeft,
     faPlay,
-    faArrowCircleRight
+    faArrowCircleRight,
+    faPhoneAlt,
+    faGlobe
     } from '@fortawesome/free-solid-svg-icons'
 
 import {
     faTwitter, 
     faLinkedinIn, 
     faGithubAlt,
-    faCodepen
+    faCodepen,
+    faRedditAlien
     } from '@fortawesome/free-brands-svg-icons'
 
 import {
     faPaperPlane,
     faTimesCircle,
     faComment,
-    faCalendarAlt
+    faCalendarAlt,
+    faEnvelope
     } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
@@ -41,11 +45,13 @@ library.add(
     faLinkedinIn,
     faGithubAlt,
     faCodepen,
+    faRedditAlien,
     // Regular Icons
     faPaperPlane,
     faTimesCircle,
     faComment,
     faCalendarAlt,
+    faEnvelope,
     // Solid Icons
     faDatabase,
     faRandom,
@@ -61,6 +67,8 @@ library.add(
     faArrowCircleLeft,
     faArrowCircleRight,
     faPlay,
+    faPhoneAlt,
+    faGlobe
     )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
