@@ -12,7 +12,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const { mapActions } = createNamespacedHelpers('Quotes')
+
 import toolbar from './components/toolkit.vue'
 import quoteDisplay from './components/quoteDisplay.vue'
 import timer from './components/timer.vue';
@@ -41,7 +43,6 @@ export default {
     // 
   },
   mounted() {
-    console.log(this.$store)
     this.fetchQuote()
   }
 }

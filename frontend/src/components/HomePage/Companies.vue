@@ -8,32 +8,28 @@
         </a>
       </div>
     </div>
-    <h3 class="heading-primary" v-if="clients.length > 0">Great clients I've worked with</h3>
+    <!-- <h3 class="heading-primary" v-if="clients.length > 0">Great clients I've worked with</h3>
     <div class="company-icons" v-if="clients.length > 0">
       <div v-for="(clients, id) in clients" :key="id">
         <a :href="clients.url" target="blank">
           <img :src="clients.logo" :alt="clients.name" srcset=""/>
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
+  import { mapGetters, mapActions } from "vuex";
   export default {
-    data () {
-      return {
-        companies: [
-          { name:"hexaware", url: "https://hexaware.com/", logo: "./static/icons/hexaware-logo.svg"},
-          { name: "ami", url: "http://www.amiindia.co.in/", logo: "./static/icons/ami-logo.svg"}
-        ],
-        clients: [
-          { name:"Ernst & Young", url:"https://www.ey.com/en_in", logo: "./static/icons/ey-logo.svg"},
-          { name:"arago-hiro", url:"https://www.arago.co/hiro/", logo: "./static/icons/arago-logo.svg"},
-          { name:"LTF", url:"https://www.lifetime.life/", logo: "./static/icons/ltf-logo.svg"},
-          { name:"AXA", url:"https://www.axa.com/en", logo: "./static/icons/axa-logo.svg"}
-        ]
-      }
+    computed: {
+      ...mapGetters(["companies"]),
+    },
+    created() {
+      this.get_companies()
+    },
+    methods: {
+      ...mapActions(["get_companies"])
     }
   }
 </script>
@@ -42,6 +38,9 @@
   .company-details {
     background-color: var(--white-color);
     padding: 3rem 2rem;
+    // animation: myfadeIn .5s ease 5.5s;
+    // animation-fill-mode: forwards;
+    // visibility: hidden;
 
     .company-icons {
       display: flex;

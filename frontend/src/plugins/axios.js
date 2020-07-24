@@ -12,9 +12,13 @@ let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
-  baseURL: 'http://localhost:1808/',
+  baseURL: './api/v1/',
   timeout: 60 * 1000
 };
+
+if (process.env.NODE_ENV == "development"){
+    config.baseURL = "http://192.168.0.111:1808/api/v1/"
+}
 
 const _axios = axios.create(config);
 

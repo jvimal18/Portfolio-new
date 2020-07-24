@@ -5,16 +5,26 @@
 </template>
 
 <style lang="scss" scoped>
+  
   .button__round {
     font-size: 1rem;
     width: 4em;
     height: 4em;
     border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-left: 5px;
     margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      color: var(--white-color);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     svg {
       font-size: 1.6rem;

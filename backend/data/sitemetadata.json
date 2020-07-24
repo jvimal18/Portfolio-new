@@ -1,0 +1,256 @@
+{
+  "credits": {
+    "1": {
+      "CreditsDate": "15 March 2020",
+      "opnsrc": [
+        "A big thanks to open source community and people who support, trust in open source.",
+        "Thanks to all developers, who devote countless hours to helping technology grow, contribute hundreds of articles, guide and willing to post there code/findings for others to use.",
+        "Thanks to all tester who are involved in countless number of opensource projects. With out a 3rd eye a project can never become stable.",
+        "Thanks to communities like <a href=\"https://www.reddit.com/\" target=\"_blank\">reddit</a>,<a href=\"http://stackoverflow.com/\" target=\"_blank\">stackoverflow</a> who allow people to collabrate and learn things together."
+      ],
+      "others": {
+        "Animation": [
+          {
+            "link": "https://greensock.com/gsap",
+            "name": "GSAP"
+          }
+        ],
+        "backend": [
+          {
+            "link": "http://python.org/",
+            "name": "python"
+          },
+          {
+            "link": "https://bottlepy.org",
+            "name": "bottle"
+          }
+        ],
+        "Designs": [
+          {
+            "link": "https://sass-lang.com/",
+            "name": "scss"
+          },
+          {
+            "link": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+            "name": "css"
+          }
+        ],
+        "hosting": [
+          {
+            "description": "Big thanks to python anywhere, for allowing free hosting of websites.",
+            "link": "https://www.pythonanywhere.com",
+            "name": "pythonanywhere"
+          }
+        ],
+        "icons": [
+          {
+            "link": "https://fontawesome.com/",
+            "name": "FontAwesome"
+          },
+          {
+            "link": "https://iconmonstr.com/",
+            "name": "Icon Monster"
+          }
+        ],
+        "Illustrations": [
+          {
+            "link": "https://undraw.co/illustrations",
+            "name": "UnDraw"
+          }
+        ],
+        "JS Modules Used": [
+          {
+            "link": "https://vuejs.org/",
+            "name": "Vuejs"
+          },
+          {
+            "link": "https://router.vuejs.org/",
+            "name": "Vue Router"
+          },
+          {
+            "link": "https://vuex.vuejs.org/",
+            "name": "Vuex"
+          },
+          {
+            "link": "https://github.com/john015/vue-load-image#readme",
+            "name": "Vue-Load-Image"
+          },
+          {
+            "link": "https://printjs.crabbly.com/",
+            "name": "PrintJs"
+          }
+        ]
+      }
+    }
+  },
+  "organizational_details": {
+    "1": {
+      "logo": "./static/icons/hexaware-logo.svg",
+      "name": "hexaware",
+      "type": "company",
+      "url": "https://hexaware.com/"
+    },
+    "2": {
+      "logo": "./static/icons/ami-logo.svg",
+      "name": "ami",
+      "type": "company",
+      "url": "http://www.amiindia.co.in/"
+    }
+  },
+  "personal_details": {
+    "1": {
+      "description": "I'm a full-stack developer specialised in frontend and backend development for complex scalable web apps. I always love to  learn & master new technologies.",
+      "skills_description": "I have more than 5 years' experience building web applications. Below is a quick overview of my main technical skill sets and tools I use.",
+      "name": "Vimal Jayapalan",
+      "primary-email": "j.vimal@outlook.com",
+      "resumeURL": "./static/resume/Resume.pdf",
+      "secondary-email": "j.vimal18@gmail.com"
+    }
+  },
+  "personal_projects": {
+    "1": {
+      "description": "Simple application to calculate tax payable as per New scheme proposed in Budget 2020",
+      "githublink": "https://github.com/jvimal18/vue-typingapp",
+      "icon": "./static/icons/tax2.svg",
+      "name": "Tax Calculator FY 20-21",
+      "routerlink": "/apps/tax2021",
+      "techused": [
+        "vue",
+        "html5",
+        "sass",
+        "js",
+        "python",
+        "css"
+      ]
+    },
+    "2": {
+      "description": "Application to calculate tax payable for financial year 2019-2020",
+      "githublink": "https://github.com/jvimal18/vue-typingapp",
+      "icon": "./static/icons/tax.svg",
+      "name": "Tax Calculator FY 19-20",
+      "routerlink": "",
+      "techused": [
+        "vue",
+        "html5",
+        "sass",
+        "js"
+      ]
+    },
+    "3": {
+      "description": "Lets have some fun beat me if you can !!!",
+      "githublink": "",
+      "icon": "./static/icons/tictactoe.svg",
+      "name": "TicTacToe",
+      "routerlink": "/apps/tictactoe",
+      "techused": [
+        "vue",
+        "python",
+        "sass"
+      ]
+    },
+    "4": {
+      "description": "Discover your relationship with your loved ones..",
+      "githublink": "",
+      "icon": "./static/icons/flames.svg",
+      "name": "Flames",
+      "routerlink": "/apps/flames",
+      "techused": [
+        "vue",
+        "python",
+        "css",
+        "html5"
+      ]
+    },
+    "5": {
+      "description": "Test your speed of typing",
+      "githublink": "",
+      "icon": "./static/icons/typeit.svg",
+      "name": "TypeIT",
+      "routerlink": "/apps/typinggame",
+      "techused": [
+        "vue",
+        "html5",
+        "css",
+        "js"
+      ]
+    }
+  },
+  "socialmedia": {
+    "1": {
+      "icon": [
+        "fab",
+        "linkedin-in"
+      ],
+      "name": "linkedIn",
+      "url": "https://linkedin.com/in/vimaljay"
+    },
+    "2": {
+      "icon": [
+        "fab",
+        "reddit-alien"
+      ],
+      "name": "Reddit",
+      "url": "http://reddit.com/user/vima1808"
+    },
+    "3": {
+      "icon": [
+        "fab",
+        "github-alt"
+      ],
+      "name": "Github",
+      "url": "http://github.com/jvimal18"
+    },
+    "4": {
+      "icon": [
+        "far",
+        "paper-plane"
+      ],
+      "name": "telegram",
+      "url": "https://t.me/vimaljay"
+    }
+  },
+  "technical_knowledge": {
+    "1": {
+      "icon": [
+        "fab",
+        "codepen"
+      ],
+      "name": "frontend",
+      "skills": [
+        "Vue/Vuex/Router",
+        "Javascript",
+        "Nodejs",
+        "Webpack",
+        "HTML/CSS/SASS"
+      ]
+    },
+    "2": {
+      "icon": [
+        "fas",
+        "database"
+      ],
+      "name": "backend",
+      "skills": [
+        "Python",
+        "Flask/Bottle",
+        "Mysql/Postgresql",
+        "Docker/Docker-compose"
+      ]
+    },
+    "3": {
+      "icon": [
+        "fas",
+        "random"
+      ],
+      "name": "others",
+      "skills": [
+        "Linux/Bash",
+        "Github/Gitlab",
+        "Ansible",
+        "Arago Hiro",
+        "Agile",
+        "DevOps"
+      ]
+    }
+  }
+}

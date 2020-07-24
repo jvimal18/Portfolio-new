@@ -10,7 +10,7 @@
     </div>
 
     <div class="form" id="form">
-      <h1 class="highlight">Details</h1>
+      <h2 class="highlight">Details</h2>
       <input type="text" id="male" placeholder="Name" />
       <input type="text" id="female" placeholder="Name" />
       <div class="button zoom" id="submit" @click="checkResult">Invent</div>
@@ -34,25 +34,19 @@ export default {
       let vm = this
       const male = this.$el.querySelector("#male").value;
       const female = this.$el.querySelector("#female").value;
-
-      console.log(male, female)
       if (!male) {
         alert("Please enter your name ");
       } else if (!female) {
         alert("Please enter your name ");
       } else {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            vm.result = this.responseText
-          }
-        };
-        xhttp.open(
-          "GET",
-          `/flames?male=${male}&female=${female}`,
-          true
-        );
-        xhttp.send();
+        this.axios.get("flames", {
+          params: {
+            male: male,
+            female: female
+            }
+        }).then(response => {
+          vm.result = response.data
+        })
       }
     }
   },

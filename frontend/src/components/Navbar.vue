@@ -15,9 +15,10 @@
           :icon="['far', 'times-circle']"
           size="2x"
         />
-        <round-icon-button v-for="(links, val, id) in socialMedias" :key="id">
-          <font-awesome-icon :icon="links.icon" />
-          <!-- size="xs" -->
+        <round-icon-button v-for="(links, val, id) in socialMedia" :key="id">
+          <a :href="links.url" target="_blank">
+            <font-awesome-icon :icon="links.icon" />
+          </a>
         </round-icon-button>
       </div>
       <div class="links">
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: "Navbar",
   data() {
@@ -42,22 +44,18 @@ export default {
         about: "/",
         resume: "/resume",
         apps: "/apps",
-        // blog: "/blog",
+        blog: "/blog",
         credits: "/credits"
       },
-      socialMedias: [
-        { url: "", icon: ["fab", "twitter"] },
-        { url: "", icon: ["fab", "linkedin-in"] },
-        { url: "", icon: ["fab", "github-alt"] },
-        { url: "", icon: ["far", "paper-plane"] }
-      ],
       showHamburger: false,
       window_width: Number
     };
   },
+  computed: {
+    ...mapGetters(["socialMedia"]),
+  },
   mounted() {
     this.window_width = window.innerWidth;
-
     window.addEventListener("resize", () => {
       this.window_width = window.innerWidth;
     });
@@ -65,28 +63,29 @@ export default {
   watch: {
     window_width() {
       this.showHamburger = this.window_width <= 768;
-      console.log(this.showHamburger);
     },
-    showHamburger() {
-      if (this.window_width <= 768) {
-        if (!this.showHamburger) {
-          document.getElementById("defaultRouterView").style.pointerEvents =
-            "none";
-          document.getElementById("body").style.overflow = "hidden";
-        } else {
-          document.getElementById("defaultRouterView").style.pointerEvents =
-            "all";
-          document.getElementById("body").style.overflow = "scroll";
-        }
-      }
-    },
+    // showHamburger() {
+    //   if (this.window_width <= 768) {
+    //     if (!this.showHamburger) {
+    //       document.getElementById("defaultRouterView").style.pointerEvents ="none";
+    //       document.getElementById("body").style.overflow = "hidden";
+    //     } else {
+    //       document.getElementById("defaultRouterView").style.pointerEvents = "all";
+    //       document.getElementById("body").style.overflow = "scroll";
+    //     }
+    //   }
+    // },
     $route() {
       if (this.window_width <= 768) {
         this.showHamburger = true;
       }
     }
   },
+  created() {
+    this.get_social_media()
+  },
   methods: {
+    ...mapActions(["get_social_media"]),
     handleHamburgerClick() {
       this.showHamburger = !this.showHamburger;
     }
@@ -171,8 +170,8 @@ nav {
     z-index: 100;
 
     .hamburger {
-      display: block;
-      z-index: 100;
+      display: absolute;
+      z-index: 1000;
     }
 
     .social {

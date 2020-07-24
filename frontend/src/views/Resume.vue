@@ -51,6 +51,7 @@
 import printjs from "print-js";
 
 export default {
+  title: 'Resume',
   components: {
     // pdf: pdfvuer
   },
@@ -65,7 +66,6 @@ export default {
   },
   watch: {
     page() {
-      console.log(this.page)
       if (this.page == this.totalPages) {
         this.$el.querySelector(".plus").classList.add("disabled");
         this.$el.querySelector(".right").classList.add("disabled");

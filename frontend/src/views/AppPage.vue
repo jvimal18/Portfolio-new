@@ -23,6 +23,7 @@
 import { mapGetters } from "vuex";
 
 export default {
+  title: 'Apps',
   computed: {
     ...mapGetters(["applications"])
   },
@@ -40,7 +41,6 @@ export default {
         this.githublink = element.githublink
       }
     });
-    console.log('githublink',this.githublink)
     next();
   }
 };

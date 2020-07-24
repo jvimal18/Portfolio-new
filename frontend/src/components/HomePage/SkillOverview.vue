@@ -31,28 +31,19 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-      skillCatagories: [
-        { name:'frontend',
-          skills: ['Vue/Vuex/Router', 'Javascript', 'Nodejs', 'Webpack', 'HTML/CSS/SASS'],
-          icon: ['fab','codepen']
-        },
-        {
-          name: 'backend',
-          skills: ['Python', 'Flask/Bottle', 'Mysql/Postgresql', 'Docker'],
-          icon: ['fas','database']
-        },
-        {
-          name: 'others',
-          skills: ['Linux/Bash', 'Github/Gitlab', 'Arago Hiro', 'Agile', 'DevOps'],
-          icon: ['fas','random']
-        }
-      ],
-      description: "I have more than 4 years' experience building web applications. \
-                    Below is a quick overview of my main technical skill sets and tools I use."
+  computed: {
+    ...mapGetters(["skillCatagories", "personalDetails"]),
+    description () {
+      return this.personalDetails.skills_description
     }
+  },
+  methods: {
+    ...mapActions(["get_skill_catagories"])
+  },
+  created() {
+    this.get_skill_catagories()
   }
 }
 </script>
@@ -62,9 +53,9 @@ export default {
       display: flex;
       flex-direction: column;
       padding: 2rem;
-      animation: myfadeIn 1s ease 4.5s;
-      animation-fill-mode: forwards;
-      visibility: hidden;
+      // animation: myfadeIn 1s ease 3s;
+      // animation-fill-mode: forwards;
+      // visibility: hidden;
 
       .contact {
         color: var(--primary-color)

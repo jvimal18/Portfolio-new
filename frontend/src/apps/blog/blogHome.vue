@@ -1,47 +1,71 @@
 <template>
   <div id="BlogList">
-    <table CELLSPACING=0 CELLPADDING=6 BORDER=0 >
-      
-        <tr>
-          <th>Topic</th>
-          <th>Posted</th>
-          <th>Views</th>
-        </tr>
-      
+    <div v-for="(category, idx) in blogMeta" :key="idx">
+      <div v-if="category.content.length > 0">
+        <!-- <div class="blog-category"> {{category.name}} </div> -->
+        <table CELLSPACING=0 CELLPADDING=6 BORDER=0 >
+          
+            <tr>
+              <th>Topic</th>
+              <th>Posted</th>
+              <th>Views</th>
+              <th>Type</th>
+            </tr>
+          
 
-      <tbody>
-        <router-link
-          :to="`/blog/${blog.id}`"
-          tag="tr"
-          class="aBlog cursor-pointer"
-          :id="`blog-${blog.id}`"
-          v-for="blog in blogmetadata"
-          :key="blog.id"
-        >
-          <td class="align-left">
-              <div class="title">{{blog.title}}</div>
-              <div class="description">{{blog.description}}</div>
-          </td>
-          <td class="align-center">
-            <div class="posted">{{blog.posted}}</div>
-          </td>
-          <td class="align-center">
-            <div class="views">{{blog.views}}</div>
-          </td>
-        </router-link>
-      </tbody>
-    </table>
+          <tbody>
+            <tr
+              tag="tr"
+              class="aBlog cursor-pointer"
+              :id="`blog-${blog.id}`"
+              v-for="(blog, blogidx) in category.content"
+              :key="blog.id"
+              @click="incrementView(blog.id, category.name, idx, blogidx)"
+            >
+              <td class="align-left">
+                  <div class="title">{{blog.title}}</div>
+                  <div class="description">{{blog.description}}</div>
+              </td>
+              <td class="align-left">
+                <div class="posted">{{blog.posted}}</div>
+              </td>
+              <td class="align-left">
+                <div class="views">{{blog.views}}</div>
+              </td>
+              <td class="align-left">
+                <div class="views">{{blog.type}}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import 'vuex'
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapGetters } = createNamespacedHelpers('Blog')
 
 export default {
   computed: {
-    ...mapGetters(["blogmetadata"])
+    ...mapGetters(["blogMeta"])
   },
-  methods: {}
+  methods: {
+    incrementView(id, name, idx, blogidx) {
+      this.axios.post('incrementBlogView', {
+          "id": id,
+          "name": name
+      }).then(res => {
+        this.blogMeta[idx]['content'][blogidx]['views'] = res.data.views
+      })
+      this.$router.push({ path: `/blog/${name}`, query: { "id":id } })
+    }
+  },
+  created() {
+  }
 };
 </script>
 

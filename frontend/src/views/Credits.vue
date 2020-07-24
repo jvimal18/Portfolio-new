@@ -1,18 +1,21 @@
 <template>
-  <div class="credits">
+  <div class="credits" v-if="siteCredits">
     <div class="header">
       <div class="heading-primary">Site Credits</div>
       <div class="date">
         <font-awesome-icon :icon="['far','calendar-alt']" />
-        {{CreditsDate}}
+        {{siteCredits.CreditsDate}}
       </div>
     </div>
     <div
       class="heading-secondary"
+    >&ldquo;Big thanks to my family and friends, Who has always helped me to grow as a better person.&rdquo;</div>
+    <div
+      class="heading-secondary"
     >&ldquo;Alone we can do so little, together we can do so much&rdquo;</div>
 
-    <div class="opsrc">
-      <p v-for="(line, idx) in opnsrc" :key="idx">
+    <div class="opsrc" ref="opSrc">
+      <p class="opsrc" v-for="(line, idx) in siteCredits.opnsrc" :key="idx">
         <font-awesome-icon :icon="['fas','arrow-circle-right']" />
         <span v-html="line"></span>
       </p>
@@ -20,105 +23,60 @@
 
     <div class="site-credits">
 
-      <creditParser name="Web UI Modules Used" :data="jsmodules"></creditParser>
-      <creditParser name="Designs" :data="css"></creditParser>
-      <creditParser name="Icons" :data="icons"></creditParser>
-      <creditParser name="Illustrations" :data="Illustrations"></creditParser>
-      <creditParser name="Backend" :data="backend"></creditParser>
-      <creditParser name="Hosting" :data="hosting"></creditParser>
+      <creditParser class="site-credit" v-for="(val, key, idx) in siteCredits.others" :key="idx" :name="key" :data="val"></creditParser>
 
     </div>
+  </div>
+
+  <div v-else class="full-loading">
+    <img src="@/assets/loadingSpinner/spin.svg"/>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import creditParser from '@/components/creditParser'
+
+
 export default {
+  title: 'Credits',
   components: {
     creditParser  
   },
-  data() {
-    return {
-      CreditsDate: "15 March 2020",
-      arrowIcon: "<font-awesome-icon :icon=\"['fas','arrow-circle-right']\"/>",
-      opnsrc: [
-        "A big to open source community and people who support, trust in open source.",
-        "Thanks to all developers, who devote countless hours to helping technology grow, contribute hundreds of articles, guide and willing to post there code/findings for others to use.",
-        "Thanks to all tester who are involved in countless number of opensource projects. With out a 3rd eye a project can never become stable.",
-        'Thanks to communities like <a href="https://www.reddit.com/" target="_blank">reddit</a>,<a href="http://stackoverflow.com/" target="_blank">stackoverflow</a> who allow people to collabrate and learn things together.'
-      ],
-      jsmodules: [
-        {
-          name: "Vuejs",
-          link: "https://vuejs.org/"
-        },
-        {
-          name: "Vue Router",
-          link: "https://router.vuejs.org/"
-        },
-        {
-          name: "Vuex",
-          link: "https://vuex.vuejs.org/"
-        },
-        {
-          name: "Vue-Load-Image",
-          link: "https://github.com/john015/vue-load-image#readme"
-        },
-        {
-          name: "PrintJs",
-          link: "https://printjs.crabbly.com/"
-        }
-      ],
-      css: [
-        {
-          name: "scss",
-          link: "https://sass-lang.com/"
-        },
-        {
-          name: "css",
-          link: "https://developer.mozilla.org/en-US/docs/Web/CSS"
-        }
-      ],
-      icons: [
-        {
-          name: "FontAwesome",
-          link: "https://fontawesome.com/"
-        },
-        {
-          name: "Icon Monster",
-          link: "https://iconmonstr.com/"
-        }
-      ],
-      Illustrations: [
-        {
-          name: "UnDraw",
-          link: "https://undraw.co/illustrations"
-        }
-      ],
-      backend: [
-        {
-          name: "python",
-          link: "http://python.org/"
-        },
-        {
-          name: "bottle",
-          link: "https://bottlepy.org"
-        }
-      ],
-      hosting: [
-        {
-          name: "pythonanywhere",
-          link: "https://www.pythonanywhere.com",
-          description: "Big thanks to python anywhere, for allowing free hosting of websites."
-
-        }
-      ]
-    };
+  computed: {
+    ...mapGetters(["siteCredits"])
+  },
+  created() {
+    this.get_site_credits()
+  },
+  mounted () {
+    let interval = setInterval(() => {
+      if (this.siteCredits) {
+        this.animateEntry()
+        clearInterval(interval)
+      }
+    }, 100);
+  },
+  methods: {
+    ...mapActions(["get_site_credits"]),
+    animateEntry () {
+      const timeline = this.$gsap.timeline({ defaults: { duration: .5 }})
+      timeline
+      .fromTo('.heading-secondary', {opacity: 0, x:-100}, {opacity: 1, x:0})
+      .fromTo('.opsrc', { x:-100, opacity:0, stagger: 1, ease: 'Power2'}, { opacity: 1, x:0 })
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
+.full-loading {
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+  }
+
 .credits {
   display: flex;
   justify-content: flex-start;

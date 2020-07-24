@@ -10,26 +10,37 @@
     <div class="content">
       <div class="greet-1">Hi, Welcome to my Site</div>
       <div class="greet-2">I'm,</div>
-      <h1 class="name">{{name}}</h1>
-      <div class="description">{{description}}</div>
+      <h1 class="name">{{personalDetails.name}}</h1>
+      <div class="description">{{personalDetails.description}}</div>
       <div class="button" @click="ShowContact">Contact Me</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex"
+
 export default {
   name: "profilecard",
-  data() {
-    return {
-      name: "Vimal Jayapalan",
-      description:
-        "I'm a full-stack developer specialised in frontend and backend development \
-        for complex scalable web apps.\
-        I always love to  learn & master new technologies."
-    };
+  computed: {
+    ...mapGetters(['personalDetails'])
+  },
+  mounted() {
+    this.animateEntry()
   },
   methods: {
+    animateEntry() {
+      const timeline = this.$gsap.timeline({ defaults: { duration: .5 }})
+
+      timeline
+      .from('.image', {opacity: 0})
+      .from('.greet-1', {opacity: 0})
+      .to('.greet-1', {opacity: 0, autoAlpha: 1})
+      .from('.greet-2', {opacity:0})
+      .from('.name', {x: 100, opacity: 0})
+      .from('.description', {opacity: 0})
+      .from('.button', {opacity: 0}, '<.5')
+    },
     ShowContact() {
       this.$eventbus.$emit("showcontact");
     }
@@ -53,8 +64,8 @@ export default {
     flex: 1;
     margin: 5rem;
     text-align: center;
-    animation: myfadeIn 1s ease-in;
-    animation-fill-mode: both;
+    // animation: myfadeIn 1s ease-in;
+    // animation-fill-mode: both;
 
     
 
@@ -69,13 +80,13 @@ export default {
     font-size: 2.4rem;
 
     .greet-1 {
-      animation: myfadeInOut 2s ease 1s;
-      animation-fill-mode: both;
+      // animation: myfadeInOut 2s ease 1s;
+      // animation-fill-mode: both;
     }
 
     .greet-2 {
-      animation: myfadeIn 1.5s ease 2s;
-      animation-fill-mode: both;
+      // animation: myfadeIn 1.5s ease 2s;
+      // animation-fill-mode: both;
     }
 
     .name {
@@ -83,16 +94,17 @@ export default {
       line-height: 8rem;
       font-weight: 600;
       letter-spacing: 2px;
-      animation: myslideleft 1s ease 3s;
-      animation-fill-mode: forwards;
-      visibility: hidden;
+      // animation: myslideleft .5s ease 3s;
+      // animation-fill-mode: forwards;
+      // visibility: hidden;
+      text-transform: capitalize;
     }
 
     .description {
       font-size: 1.6rem;
-      animation: myslideleft 1s ease 4s;
-      animation-fill-mode: forwards;
-      visibility: hidden;
+      // animation: myslideleft 1s ease 3.5s;
+      // animation-fill-mode: forwards;
+      // visibility: hidden;
     }
 
     .button {
@@ -103,9 +115,9 @@ export default {
       width: 7em;
       margin-top: 1em;
       background-color: var(--hover-color-dark);
-      animation: myfadeIn 1s ease 4s;
-      animation-fill-mode: forwards;
-      visibility: hidden;
+      // animation: myfadeIn 1s ease 3.5s;
+      // animation-fill-mode: forwards;
+      // visibility: hidden;
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.3);

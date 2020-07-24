@@ -12,7 +12,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const { mapGetters } = createNamespacedHelpers('Quotes')
+
 import inputAreaVue from './inputArea.vue'
 
 export default {
@@ -45,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .container {
   display: relative;

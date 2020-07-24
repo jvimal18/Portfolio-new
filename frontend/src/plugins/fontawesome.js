@@ -20,7 +20,9 @@ import {
     faPlay,
     faArrowCircleRight,
     faPhoneAlt,
-    faGlobe
+    faGlobe,
+    faRecycle,
+    faUserTie
     } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -68,7 +70,9 @@ library.add(
     faArrowCircleRight,
     faPlay,
     faPhoneAlt,
-    faGlobe
+    faGlobe,
+    faRecycle,
+    faUserTie
     )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

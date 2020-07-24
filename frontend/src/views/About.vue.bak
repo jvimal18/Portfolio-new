@@ -23,15 +23,30 @@
             </div>
           </div>
           <div class="links">
-            <div v-for="(links, val, id) in socialMedias" :key="id">
+            <div class="link-inner" v-for="(links, val, id) in socialMedias" :key="id">
               <font-awesome-icon :icon="links.icon" />
-              <a :href="links.url">{{links.url}}</a>
+              <a :href="links.url">{{links.name}}</a>
             </div>
           </div>
         </div>
       </div>
 
       <div class="about">
+        <div class="career-summary">
+          <div class="section-heading">CAREER SUMMARY</div>
+          <div class="career-content">
+            <p>Ullamco aliquip occaecat laborum anim. Nulla proident voluptate sunt deserunt. Nostrud cupidatat sint est pariatur consectetur ex irure fugiat sunt aliqua. Aute qui duis in consequat laboris sunt non officia do deserunt. Pariatur nulla sunt ipsum cillum labore veniam dolore est irure dolor ad nisi aute cupidatat. Aute pariatur et id qui reprehenderit consequat sit amet sit. Dolor in pariatur aute velit dolore amet.</p>
+          </div>
+        </div>
+
+        <div class="career-summary">
+          <div class="section-heading">CAREER SUMMARY</div>
+          <div class="career-content">
+            <p>Ullamco aliquip occaecat laborum anim. Nulla proident voluptate sunt deserunt. Nostrud cupidatat sint est pariatur consectetur ex irure fugiat sunt aliqua. Aute qui duis in consequat laboris sunt non officia do deserunt. Pariatur nulla sunt ipsum cillum labore veniam dolore est irure dolor ad nisi aute cupidatat. Aute pariatur et id qui reprehenderit consequat sit amet sit. Dolor in pariatur aute velit dolore amet.</p>
+          </div>
+        </div>
+
+
         <timeline v-for="(d, idx) in data" :key="idx">
           <template v-slot:title>{{d.title}}</template>
           <template v-slot:date>{{d.date}}</template>
@@ -43,7 +58,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import timeline from "@/components/timeline";
 export default {
   components: {
@@ -52,10 +67,10 @@ export default {
   data() {
     return {
       socialMedias: [
-        { url: "https://www.linkedin.com/in/vimal-jay-a932b1123", icon: ["fab", "linkedin-in"] },
-        { url: "https://github.com/jvimal18", icon: ["fab", "github-alt"] },
-        { url: "https://www.reddit.com/user/vima1808", icon: ["fab", "reddit-alien"] },
-        { url: "https://www.reddit.com/user/vima1808", icon: ["fas", "globe"] },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/vimaljay", icon: ["fab", "linkedin-in"] },
+        { name: "Github", url: "https://github.com/jvimal18", icon: ["fab", "github-alt"] },
+        { name: "Reddit", url: "https://www.reddit.com/user/vima1808", icon: ["fab", "reddit-alien"] },
+        { name: "My Website", url: "https://www.vimal1808.pythonanywhere.com", icon: ["fas", "globe"] },
       ],
       data: [
         {
@@ -102,6 +117,15 @@ export default {
 
 <style lang="scss" scoped>
 .resume {
+  .section-heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-align: left;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(78, 78, 78, 0.5);
+  }
+
   .jumbotrom {
     height: 300px;
     background-color: var(--primary-color);
@@ -118,7 +142,7 @@ export default {
     margin: 0 20rem;
     position: relative;
     top: -15rem;
-    box-shadow: 0 0 8px 0px #333;
+    box-shadow: 0 0 10px 0px rgba(78, 78, 78, 0.5);
 
     .header {
       display: flex;
@@ -160,8 +184,19 @@ export default {
         }
 
         .links {
+          padding: 0 10rem;
+          
+          svg {
+            background-color: var(--white-color);
+            font-size: 2rem;
+            color: var(--text-color);
+            padding: 2px;
+            border-radius: 2px;
+          }
+
           a {
             color: var(--white-color);
+            margin-left: 2rem;
           }
         }
       }
@@ -169,6 +204,8 @@ export default {
 
     .about {
       overflow: hidden;
+      padding: 5rem;
+      text-align: left;
     }
   }
 

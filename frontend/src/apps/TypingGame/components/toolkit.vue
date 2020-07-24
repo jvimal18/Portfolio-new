@@ -16,7 +16,8 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const { mapActions } = createNamespacedHelpers('Quotes')
 
 export default {
     name: 'toolbar',

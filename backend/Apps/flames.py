@@ -1,6 +1,7 @@
+from bottle import Bottle, request
+from os import environ
+
 def flames(male, female):
-    # male = request.query['male']
-    # female = request.query['female']
     full_form = {'F': 'Friends', 'L': 'Love', 'A': 'Affection',
                  'M': 'Marriage', 'E': 'Enemy', 'S': 'Sister'}
 
@@ -17,10 +18,6 @@ def flames(male, female):
 
     total_length = len(male_list) + len(female_list)
 
-    # print('male : ', male_list)
-    # print('female : ', female_list)
-    # print('len : ', total_length)
-
     while len(flame) > 1:
         outindex = (total_length % len(flame)) - 1
         _not = flame.pop(outindex)
@@ -31,3 +28,18 @@ def flames(male, female):
             flame = flame[(outindex):] + flame[0:outindex]
 
     return full_form[flame[0]]
+
+
+# Defining API for application
+flames_app = Bottle()
+
+@flames_app.get('/flames')
+def getresult():
+    male=request.query['male']
+    female=request.query['female']
+    return flames(male, female)
+
+
+if __name__ == '__main__':
+    flames_app.run(host='0.0.0.0', port=1808, reloader=True, debug=True )
+

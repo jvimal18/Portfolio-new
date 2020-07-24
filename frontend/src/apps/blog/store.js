@@ -1,56 +1,40 @@
+import Vue from 'vue'
+
 const state = {
-    blogmetadata: [
-        {
-            id: 1,
-            title: 'About Me',
-            description: 'Irure laboris laborum mollit minim deserunt incididunt Lorem ea ipsum.',
-            link: '',
-            posted: '18 Jan 2020',
-            views: 2
-        },
-        {
-            id: 2,
-            title: 'About Me',
-            description: 'Ad aliqua amet magna labore.',
-            link: '',
-            posted: '18 Jan 2020',
-            views: 3
-        },
-        {
-            id: 3,
-            title: 'About Me',
-            description: 'Consequat consequat voluptate enim ut labore est.Veniam quis Lorem qui nisi magna cupidatat aliqua nostrud consectetur ipsum do excepteur sit deserunt.',
-            link: '',
-            posted: '20as Jan 2020',
-            views: 100000
-        }
-    ]
+    blogMeta: [],
+    categories: []
   };
   
   const getters = {
-    blogmetadata: (state) => state.blogmetadata 
+    blogMeta: (state) => state.blogMeta,
+    categories: (state) => state.categories
   };
   
   const actions = {
-    // async fetchQuote({ commit }) {
-    //   await fetch(RANDOM_QUOTE_API_URL).then(res => {
-    //     if (res.ok) {
-    //       res.json().then(data => {
-    //         commit("setcurrentQuoteRes", data); // commit data -> commit (<mutation func name>, <data>)
-    //         commit("setQuoteLength", data.quote.length);
-    //       });
-    //     } else {
-    //       console.log("Error");
-    //     }
-    //   });
-    // }
+    async getBlogMeta({ commit, dispatch }) {
+      await Vue.axios.get("getblogmeta").then((response) => {
+        commit("setBlogMeta", response.data);
+        dispatch('genCategories')
+      })
+    },
+    genCategories({state, commit}) {
+      let categories = []
+
+      Object.keys(state.blogMeta).forEach(function(k){
+        categories.push({ id: k, name:state.blogMeta[k].name })
+      });
+
+      commit('setCategories', categories)
+    }
   };
   
   const mutations = {
-    //   setcurrentQuoteRes: (state, data) => { state.currentQuoteRes = data },
+    setBlogMeta: (state, object) => { state.blogMeta = object },
+    setCategories: (state, array) => { state.categories = array }
   };
   
   export default {
+    namespaced: true,
     state,
     getters,
     actions,

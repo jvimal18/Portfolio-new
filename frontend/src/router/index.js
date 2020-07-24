@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AppHome from '@/components/AppPage/Home'
 import blogHome from '@/apps/blog/blogHome'
-import blogView from '@/apps/blog/components/blogView.vue';
-import about from '@/views/About'
+import blogView from '@/apps/blog/components/blogView.vue'
 
 Vue.use(VueRouter)
 
@@ -17,16 +16,16 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: about
+    component: () => import(/* webpackChunkName: "About" */ '@/views/Home.vue')
   },
   {
     path: '/resume',
     name: 'Resume',
-    component: () => import('../views/Resume.vue')
+    component: () => import(/* webpackChunkName: "Resume" */ '../views/Resume.vue')
   },
   {
     path: '/apps',
-    component: () => import('../views/AppPage.vue'),
+    component: () => import(/* webpackChunkName: "App" */ '../views/AppPage.vue'),
     children: [
       {
         name: 'Apps',
@@ -36,17 +35,22 @@ const routes = [
       {
       path: 'typinggame',
       name: 'TypeIT',
-      component: () => import('../apps/TypingGame/typingGame.vue')
+      component: () => import(/* webpackChunkName: "App-Typing" */ '../apps/TypingGame/typingGame.vue')
       },
       {
         path: 'flames',
         name: 'Flames',
-        component: () => import('@/apps/Flames/flames.vue')
+        component: () => import(/* webpackChunkName: "App-Flames" */ '@/apps/Flames/flames.vue')
       },
       {
         path: 'tax2021',
         name: 'Tax Calculator 20-21',
-        component: () => import('@/apps/TaxCalculator20-21/TaxCalcHome.vue')
+        component: () => import(/* webpackChunkName: "App-TaxCalc20" */ '@/apps/TaxCalculator20-21/TaxCalcHome.vue')
+      },
+      {
+        path: 'tictactoe',
+        name: 'TicTacToe',
+        component: () => import(/* webpackChunkName: "App-TicTacToe" */ '../apps/TicTacToe/tictactoe.vue')
       },
 
     ]
@@ -54,7 +58,12 @@ const routes = [
   {
     path: '/credits',
     name: 'Credits',
-    component: () => import('../views/Credits.vue')
+    component: () => import(/* webpackChunkName: "Credits" */ '../views/Credits.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "Login" */ '../views/AdminLogin.vue')
   },
   {
     path: '/blog',
@@ -62,15 +71,17 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Blog',
+        name: 'Blogs',
         component: blogHome
       }, 
       {
-        path: '/blog/:id',
-        component: blogView
+        name: 'Blog',
+        path: '/blog/:category',
+        component: blogView,
+        props: true
       }
     ]
-  },
+  }
 ]
 
 const router = new VueRouter({

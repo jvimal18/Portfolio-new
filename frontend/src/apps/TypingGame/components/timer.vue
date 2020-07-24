@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const { mapGetters, mapActions } = createNamespacedHelpers('Quotes')
 // var moment = require('moment');
 
 export default {
@@ -34,7 +35,6 @@ export default {
             if (this.counter > 10){
                 document.getElementById('timer').classList.remove('red')
             } else if ( this.counter >= 1 && this.counter <= 10){
-                console.log('corrupt')
                 this.danger = true
             } else if ( this.counter <= 0) {
                 alert("Nice Try, Time Over!!!")

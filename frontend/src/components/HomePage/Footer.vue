@@ -44,6 +44,9 @@ export default {
   color: var(--white-color);
   background-color: var(--primary-color);
   padding: 2rem;
+  // animation: myfadeIn .5s ease 6s;
+  // animation-fill-mode: forwards;
+  // visibility: hidden;
 
   .vue-load-image img {
     border-radius: 200px;

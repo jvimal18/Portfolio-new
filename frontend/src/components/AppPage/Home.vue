@@ -1,7 +1,6 @@
 <template>
   <div class="app-home">
     <section class="heading-primary">Personal Fun Projects</section>
-
     <div class="content">
       <div
         class="card"
@@ -51,7 +50,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "AppHome",
@@ -80,10 +79,16 @@ export default {
       element.style.visibility = 'hidden'
     })
   },
+  watch: {
+    applications() {
+      
+    }
+  },
   created() {
-   
+   this.get_applications()
   },
   methods: {
+    ...mapActions(["get_applications"]),
     setShowOverlay(idx, val) {
       this.$set(this.showOverlay, idx, val);
     }

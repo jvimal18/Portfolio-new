@@ -1,8 +1,12 @@
 .venv/
+venv/
 **\.vscode\
 node_modules/
 *.pyc
 dist/
+backend/cache
+backend/env.py
+backend/config.py
 
 # Editor directories and files
 .idea

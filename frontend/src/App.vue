@@ -2,38 +2,44 @@
   <div id="app">
     <contact-form />
     <nav-bar></nav-bar>
-    
-    <router-view id="defaultRouterView" :key="$route.path"></router-view>
-   
+    <transition name="fade" mode="out-in"
+      :duration="{ enter: 500, leave: 50}"
+      >
+      <keep-alive>
+        <router-view v-title="`Vimal Jayapalan - ${$route.name}`" id="defaultRouterView" :key="$route.path" ></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/Navbar";
 import ContactForm from "@/components/ContactForm";
+import {mapGetters} from "vuex"
 
 export default {
   name: "App",
   data() {
     return {
       window_width: Number
-    }
-  },
-  watch: {
-    $route() {
-      var elmnt = document.getElementById('body')
-      elmnt.scrollTop+=1000;
-    }
+    };
   },
   components: {
     NavBar,
     ContactForm
   },
-  created() {
-    
+  computed: { ...mapGetters(['title']) },
+  created () {
+    document.addEventListener('keyup', this.admitpanel, false);
   },
   methods: {
-  
+    admitpanel(e) {
+    // this would test for whichever key is 40 and the ctrl key at the same time
+    if (e.ctrlKey && e.keyCode == 65) {
+        // call your function to do the thing
+        this.$router.push({path: '/login'})
+    }
+}
   }
 };
 </script>
@@ -62,8 +68,6 @@ export default {
   --breakpoint-md: 768px;
   --breakpoint-sm: 640px;
 }
- 
-
 
 h1,
 h2,
@@ -89,7 +93,7 @@ html {
   color: var(--text-color);
   line-height: 3rem;
   background-color: var(--app-background);
-  position: relative
+  position: relative;
 }
 
 .heading-primary {
@@ -209,7 +213,6 @@ html {
 }
 
 @keyframes myfadeInOut {
-
   0% {
     opacity: 0;
   }
@@ -221,8 +224,7 @@ html {
 
   100% {
     opacity: 0;
-    display: none
+    display: none;
   }
-  
 }
 </style>
